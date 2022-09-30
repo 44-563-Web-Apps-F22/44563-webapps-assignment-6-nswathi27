@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music HTML Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"   
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" 
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <h2>Musician guess by Swathi Nuli</h2> <br>
+    <h2>Getting input</h2>
+
+    <form>
+        <div class="form-group">
+            <label for="form1_musician_name">Enter the secret musician name</label>
+            <input type="password" class="form-control" id="form1_musician_name" name="form1_musician_name" value="John Lennon"> <br>
+        </div>
+        <div class="form-group">
+            <label for="form1_nick">Guess the musician</label> <br>
+            <input type="text" id="form1_nick" name="form1_nick" autofocus> <br>
+        </div> <br>
+    
+            <input type="button" class="btn btn-primary" onclick="checkGuess()" value="Check the guess">
+        
+    </form>
+
+
+    <p id="result">This text will be replaced </p>
+
+    <script>
+        var correct=0;
+        var wrong=0;
+
+        function checkGuess() {
+            console.log("Getting form values")
+            musician_name = document.getElementById("form1_musician_name").value
+            user_entered = document.getElementById("form1_nick").value
+            if(musician_name == user_entered) {
+                alert("You got it right")
+                correct+=1
+            }
+            else 
+            {
+                alert("Wrong Musician")
+                wrong+=1
+            }
+            document.getElementById("result").innerHTML = "Correct count : "+correct +   "<br/>"+"Wrong Count : " +wrong
+        }
+    </script>
+</body>
+
+</html>
