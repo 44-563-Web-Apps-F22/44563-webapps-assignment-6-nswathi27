@@ -23,13 +23,13 @@
 
     <form>
         <label for="form1_base_amount">Enter base amount</label>
-        <input type="number" id="form1_base_amount" name="form1_base_amount" value=20> <br>
+        <input type="number" id="form1_base_amount" name="form1_base_amount" value=20> <br><br>
 
         <label for="form1_discount">Enter the discount percentage</label>
         <input type="number" id="form1_discount" name="form1_discount" value=10 autofocus> <br>
         <input type="button" class="btn btn-primary" onclick="discount()" value="Apply discount">
     </form>
-
+    <p id="result_1">This text will be replaced </p>
     <form>
         <input type="radio" id="rg1_red" name="color" value="times" onclick="chooseOp()"
           checked >
@@ -50,7 +50,7 @@
       
 
 
-    <p id="result">This text will be replaced </p>
+    <p id="result_2">This text will be replaced </p>
 
     <script>
         var base_amount = document.getElementById("form1_base_amount").value;
@@ -64,7 +64,7 @@
                 result = result + temp + " ";
             }
             result = "Discounted amounts for base "+ base_amount + " are "+result;  
-            document.getElementById("result").innerHTML = result;
+            document.getElementById("result_1").innerHTML = result;
         }
 
         function chooseOp()
@@ -81,7 +81,7 @@
             {
                 result = base_amount**discount_val
             }
-            document.getElementById("result").innerHTML = result;
+            document.getElementById("result_2").innerHTML = result;
         }
     </script>
 
