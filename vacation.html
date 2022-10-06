@@ -12,14 +12,19 @@
     <h2>Swathi Nuli selects a vacation</h2>
 
     <form>
-        <input type="checkbox" id="air" name="topping1" value="True">
-        <label for="air">Travel by Air</label></br>
-
-        <input type="checkbox" id="domestic" name="topping2" value="True">
-        <label for="domestic">Domestic</label></br>
-
+        <div class="form-group">
+            <input type="checkbox" id="air" name="topping1" value="True">
+            <label for="air">Travel by Air</label></br>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" id="domestic" name="topping2" value="True">
+            <label for="domestic">Domestic</label></br>
+        </div>
+        
+        <div class="form-group">
         <input type="checkbox" id="resort" name="topping3" value="False">
         <label for="resort">Resort</label></br>
+        </div>
 
         <input type="button" onclick="selectVacation()" value="Select a vacation">
     </form>
