@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"   
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" 
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+
+    <title>Discount HTML Page</title>
+   
+</head>
+
+<body>
+
+    <h2>Swathi Nuli computes discounts</h2>
+
+
+    <form>
+        <label for="form1_base_amount">Enter base amount</label>
+        <input type="number" id="form1_base_amount" name="form1_base_amount" value=20> <br>
+
+        <label for="form1_discount">Enter the discount percentage</label>
+        <input type="number" id="form1_discount" name="form1_discount" value=10 autofocus> <br>
+        <input type="button" class="btn btn-primary" onclick="discount()" value="Apply discount">
+    </form>
+
+    <form>
+        <input type="radio" id="rg1_red" name="color" value="times" onclick="chooseOp()"
+          checked >
+        <label for="rg1_red">*</label></br>
+      
+        <input type="radio" id="rg1_blue" name="color" onclick="chooseOp()"
+           value="divide">
+        <label for="rg1_blue">/</label></br>
+      
+        <input type="radio" id="rg1_green" name="color" onclick="chooseOp()"
+           value="exponent">
+        <label for="rg1_green">**</label></br>
+
+        <input type="button" onclick="chooseOp()" value="Get values from radio group">
+      </form>
+      
+      
+      
+
+
+    <p id="result">This text will be replaced </p>
+
+    <script>
+        var base_amount = document.getElementById("form1_base_amount").value;
+        var discount_val = document.getElementById("form1_discount").value;
+        var temp;
+
+        function discount() {
+            var result = "";
+            for (var i = 1; i < 6; i++) {
+                temp = ((i * base_amount)-(i * base_amount) * discount_val/100);
+                result = result + temp + " ";
+            }
+            result = "Discounted amounts for base "+ base_amount + " are "+result;  
+            document.getElementById("result").innerHTML = result;
+        }
+
+        function chooseOp()
+        {
+            if(document.getElementById("rg1_red").checked) 
+            {
+                result = base_amount * discount_val;
+            }
+            else if(document.getElementById("rg1_blue").checked)
+            {
+                result = base_amount / discount_val;
+            }
+            else if(document.getElementById("rg1_green").checked)
+            {
+                result = base_amount**discount_val
+            }
+            document.getElementById("result").innerHTML = result;
+        }
+    </script>
+
+   
+
+</body>
+
+</html>

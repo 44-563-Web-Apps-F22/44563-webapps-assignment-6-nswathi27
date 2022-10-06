@@ -36,9 +36,14 @@
 
     <p id="result">This text will be replaced </p>
 
+    <div class="container">
+        <img src="isoptera.jpg" id="insect_img" alt="Isoptera" style="width:100px;height:100px" onclick="swapImage()">
+    </div>
+
     <script>
         var correct=0;
         var wrong=0;
+        var useImage = 1;
 
         function checkGuess() {
             console.log("Getting form values")
@@ -54,6 +59,28 @@
                 wrong+=1
             }
             document.getElementById("result").innerHTML = "Correct count : "+correct +   "<br/>"+"Wrong Count : " +wrong
+        }
+
+        function swapImage()
+        {
+            switch(useImage)
+            {
+                case 1 : {
+                    document.getElementById("insect_img").src = "isoptera.jpg"
+                    useImage=2;
+                    break;
+                }
+                case 2 : {
+                    document.getElementById("insect_img").src = "lady bird.jpeg"
+                    useImage=3;
+                    break;
+                }
+                case 3 : {
+                    document.getElementById("insect_img").src = "larva.jpg"
+                    useImage=1;
+                    break;
+                }
+            }
         }
     </script>
 </body>

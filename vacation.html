@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Vacation HTML Page
+    </title>
+</head>
+
+<body>
+
+    <h2>Swathi Nuli selects a vacation</h2>
+
+    <form>
+        <input type="checkbox" id="cb1_cheese" name="topping1" value="True">
+        <label for="cb1_cheese">Travel by Air</label></br>
+
+        <input type="checkbox" id="cb1_olive" name="topping2" value="True">
+        <label for="cb1_olive">Domestic</label></br>
+
+        <input type="checkbox" id="cb1_onion" name="topping3" value="False">
+        <label for="cb1_onion">Resort</label></br>
+
+        <input type="button" onclick="selectVacation()" value="Select a vacation">
+    </form>
+
+    <p id="result">This text will be replaced </p>
+
+    <form>
+        <div class="form-group">
+            <label for="form1_city">Enter a city</label>
+            <input type="text" class="form-control" id="form1_city" name="form1_city" value="city"> <br>
+        </div>
+        <div class="form-group">
+            <label for="form1_price">Enter price</label> <br>
+            <input type="text" id="form1_price" name="form1_price" autofocus> <br>
+        </div> <br>
+    
+            <input type="button" class="btn btn-primary" onclick="updateVacation()" value="Update the vacation">
+        
+    </form>
+
+    <script>
+        var my_vacation = {};
+
+        function selectVacation() {
+            my_vacation = {};
+            var label1_val = document.getElementById("cb1_cheese").checked;
+            var label2_val = document.getElementById("cb1_olive").checked;
+            var label3_val = document.getElementById("cb1_onion").checked;
+            if(label1_val == true)
+            {
+                my_vacation.cb1_cheese = true;
+            }
+            else 
+            {
+                my_vacation.cb1_cheese = false;
+            }
+            if(label2_val == true)
+            {
+                my_vacation.cb1_olive = true;
+            }
+            else
+            {
+                my_vacation.cb1_olive = false;
+            }
+
+            if(label3_val)
+            {
+                my_vacation.cb1_onion = true;
+            }
+            else 
+            {
+                my_vacation.cb1_onion = false;
+            }
+            document.getElementById("result").innerHTML = JSON.stringify(my_vacation);
+        }
+
+        function updateVacation()
+        {
+            var city_val = document.getElementById("form1_city").value;
+            var price_val = document.getElementById("form1_price").value;
+            my_vacation["city"] = city_val;
+            my_vacation["price_val"] = price_val;
+            document.getElementById("result").innerHTML = JSON.stringify(my_vacation);
+        }
+    </script>
+
+</body>
+
+</html>
